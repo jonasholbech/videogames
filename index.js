@@ -22,7 +22,7 @@ function post() {
     multiplayer: true,
     metascore: 89,
     release_date: Date.now(),
-    platforms: ["XBOX", "Playstation 4", "Playstation 5", "PC", "Mac"],
+    platforms: ["XBOX", "Playstation 4", "Playstation 5", "Windows", "Mac"],
   };
 
   const postData = JSON.stringify(data);
