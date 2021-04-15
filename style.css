@@ -31,7 +31,7 @@ h2 {
 header:is(.the-form > *) {
   --columns: 1 / -1;
   display: grid;
-  place-content: end center;
+  place-items: end center;
   gap: 1rem;
   grid-column: 1 / -1;
   color: #fff;
@@ -56,6 +56,7 @@ header h1 {
   position: relative;
   font-family: "Press Start 2P", sans-serif;
   font-size: 3rem;
+  font-size: clamp(2rem, 1.3784rem + 2.1622vw, 3rem);
   font-weight: 900;
   line-height: 1.125;
   background: linear-gradient(45deg, #5000ca, 50%, #fb28a8);
@@ -420,7 +421,7 @@ output::after {
   flex-flow: wrap;
   justify-content: space-between;
   padding: 0.75rem 1rem;
-  background: hsl(264deg 30% 97%);
+  background: hsl(264deg 30% 98%);
   margin: 1rem -1rem -1rem;
 }
 
@@ -439,6 +440,9 @@ output::after {
 }
 
 @media (max-width: 40rem) {
+  header:is(.the-form > *) {
+    block-size: 30vh;
+  }
   .alt .the-form,
   .the-form {
     --offset: -3rem;
