@@ -205,6 +205,8 @@ input[type="checkbox"]:checked::after {
 /* Hint */
 .hint {
   color: #585858;
+  font-size: 0.9rem;
+  font-weight: 400;
   line-height: 1.25;
   transition: 0.1s;
 }
@@ -349,10 +351,6 @@ output::after {
   }
 }
 
-.alt .hint {
-  font-size: 0.9rem;
-}
-
 .alt fieldset {
   padding: 0;
   /* border: 0; */
@@ -400,6 +398,7 @@ output::after {
 }
 
 .game {
+  position: relative;
   padding: 1rem;
   background: #fff;
   color: #2b2b2b;
@@ -407,7 +406,38 @@ output::after {
   box-shadow: 0 12px 28px 0 rgb(0 0 0 / 20%), 0 2px 4px 0 rgb(0 0 0 / 10%),
     inset 0 0 0 1px rgb(255 255 255 / 50%);
   border-radius: 10px;
-  overflow: hidden;
+}
+
+.delete-btn {
+  all: initial;
+  vertical-align: middle;
+  cursor: pointer;
+  line-height: 0;
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-start: 0;
+  background: #fff;
+  transform: translate(30%, -30%);
+  box-shadow: 0 12px 28px 0 rgb(0 0 0 / 20%), 0 2px 4px 0 rgb(0 0 0 / 10%);
+  border-radius: 50%;
+}
+
+.delete-btn:focus-visible {
+  outline: 2px dashed #fb28a8;
+  outline-offset: 2px;
+}
+
+.delete-btn:hover {
+  --line-stroke: #5000ca;
+  --circle-stroke: #fb28a8;
+  outline: none;
+  box-shadow: inset 0 0 0 2px #fb28a8, 0 12px 28px 0 rgb(0 0 0 / 20%),
+    0 2px 4px 0 rgb(0 0 0 / 10%);
+  border-radius: 50%;
+}
+
+.delete-btn:active {
+  --line-stroke: #fb28a8;
 }
 
 .release-date {
