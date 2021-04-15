@@ -431,6 +431,7 @@ output::after {
   .the-form {
     --offset: -3rem;
     grid: auto-flow auto / minmax(1rem, 1fr) minmax(0, 50ch) minmax(1rem, 1fr);
+    gap: 0;
   }
   .the-form > form {
     --columns: 2;
@@ -438,6 +439,7 @@ output::after {
 
   .the-form > .games {
     --columns: 2;
+    --offset: 0;
   }
 }
 
