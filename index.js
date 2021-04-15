@@ -56,11 +56,11 @@ function showGame(game) {
   const template = document.querySelector("template").content;
   const copy = template.cloneNode(true);
   copy.querySelector("h2").textContent = game.title;
-  copy.querySelector("header p span").textContent = game.release_date;
+  copy.querySelector(".release-date").textContent = game.release_date;
   copy.querySelector(".metascore span").textContent = game.metascore;
   copy.querySelector(".age_limit span").textContent = game.age_limit;
 
-  document.querySelector("main").appendChild(copy);
+  document.querySelector(".games").appendChild(copy);
 }
 get();
 

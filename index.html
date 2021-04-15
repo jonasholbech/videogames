@@ -5,27 +5,194 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Games Worth Playing</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>Games Worth Playing</h1>
-    <button class="addGame">Add A Game</button>
+    <!-- <button class="addGame">Add A Game</button> -->
     <template>
-      <article>
+      <article class="game">
         <header>
           <h2></h2>
-          <p>Released: <span></span></p>
+          <p><span class="visually-hidden">Released:</span> <span class="release-date"></span></p>
         </header>
         <section class="meta">
-          <dl>
-            <dt>Metascore</dt>
-            <dd class="metascore"><span></span>%</dd>
-            <dt>Age Limit</dt>
-            <dd class="age_limit"><span></span>+</dd>
-          </dl>
+            <p><span class="visually-hidden">Metascore:</span> <span class="metascore"><span></span>%</span></p>
+            <p><span class="visually-hidden">Age Limit:</span> <span class="age_limit"><span></span>+</span></p>
         </section>
       </article>
     </template>
-    <main></main>
+    <main>
+
+      <div class="the-form">
+        <header class="full">
+            <h1>Games Worth Playing</h1>
+            <p>Enter your data</p>
+        </header>
+
+        <form>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <span class="hint">Enter a game title</span>
+                <input id="title" type="text" name="title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="desc">Description</label>
+                <span class="hint">Enter a game description</span>
+                <textarea name="description" id="desc" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="age_limit">Age limit</label>
+                <span class="hint">Enter an age limit</span>
+                <input type="text" id="age_limit" pattern="[0-9]{,3}" name="age_limit" inputmode="numeric" required>
+            </div>
+
+            <div class="form-group">
+                <label for="release_date">Release date</label>
+                <span class="hint">Select release date</span>
+                <input type="date" id="release_date" name="release_date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="genre">Genre</label>
+                <span class="hint">Enter a genre</span>
+                <input type="text" id="genre" name="sworn_villains">
+            </div>
+
+            <fieldset class="platform">
+                <legend>Platforms</legend>
+                <span class="hint">Which platforms are eligible?</span>
+                <ul role="list" class="controls">
+                    <li>
+                        <label for="playstation_4">
+                            <input id="playstation_4" type="checkbox" name="platform" value="playstation 4">
+                            PlayStation 4
+                        </label>
+                    </li>
+                    <li>
+                        <label for="playstation_5">
+                            <input id="playstation_5" type="checkbox" name="platform" value="playstation 5">
+                            PlayStation 5
+                        </label>
+                    </li>
+                    <li>
+                        <label for="xbox">
+                            <input id="xbox" type="checkbox" name="platform" value="X-Box">
+                            X-Box
+                        </label>
+                    </li>
+                    <li>
+                        <label for="windows">
+                            <input id="windows" type="checkbox" name="platform" value="Windows">
+                            Windows
+                        </label>
+                    </li>
+                    <li>
+                        <label for="mac">
+                            <input id="mac" type="checkbox" name="platform" value="Mac">
+                            MacOS
+                        </label>
+                    </li>
+                </ul>
+            </fieldset>
+
+            <fieldset class="multiplayer">
+                <legend>Multiplayer</legend>
+                <span class="hint">Is the game multiplayer or singleplayer?</span>
+                <ul role="list" class="controls">
+                    <li>
+                        <label for="singleplayer">
+                            <input id="singleplayer" type="radio" name="game_mode" value="singleplayer" checked>
+                            Singleplayer
+                        </label>
+                    </li>
+                    <li>
+                        <label for="multiplayer">
+                            <input id="multiplayer" type="radio" name="game_mode" value="multiplayer">
+                            Multiplayer
+                        </label>
+                    </li>
+                </ul>
+            </fieldset>
+
+            <div class="form-group inline">
+
+                <label for="multiplayer-1">
+                    <input id="multiplayer-1" type="checkbox" name="multiplayer" value="multiplayer">
+                    <span>Multiplayer (alt)</span>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price</label>
+                <span class="hint">Enter a price</span>
+                <div class="input-group">
+                    <input type="text" inputmode="decimal" id="price" name="price">
+                    <span>DKK</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="metascore">Metascore</label>
+                <span class="hint">Provide a metascore</span>
+                <div class="input-group">
+                    <input type="number" step="10" min="0" max="100" inputmode="numeric" id="metascore"
+                        name="metascore">
+                    <span>%</span>
+                </div>
+            </div>
+
+            <div class="form-group range">
+                <label for="metascore-alt">Metascore</label>
+                <div class="range-wrap">
+                    <input type="range" step="10" min="0" max="100" inputmode="numeric" id="metascore-alt"
+                        name="metascore-alt" list="tickmarks" oninput="this.nextElementSibling.value = this.value">
+                    <output name="result" for="metascore-alt"></output>
+                </div>
+                <datalist id="tickmarks">
+                    <option value="0"></option>
+                    <option value="10"></option>
+                    <option value="20"></option>
+                    <option value="30"></option>
+                    <option value="40"></option>
+                    <option value="50"></option>
+                    <option value="60"></option>
+                    <option value="70"></option>
+                    <option value="80"></option>
+                    <option value="90"></option>
+                    <option value="100"></option>
+                </datalist>
+            </div>
+
+            <button class="btn">Add game</button>
+        </form>
+
+        <button class="toggle">Toggle</button>
+
+        <section class="games">
+
+        </section>
+
+    </main>
     <script src="index.js"></script>
+    <script>
+        const toggle = document.querySelector('button.toggle');
+        const body = document.body;
+
+        toggle.addEventListener('click', _ => body.classList.toggle('alt'));
+
+        document.querySelectorAll('textarea').forEach(el => {
+            el.style.height = el.setAttribute('style', 'height: ' + el.scrollHeight + 'px');
+            el.classList.add('auto');
+            el.addEventListener('input', e => {
+                el.style.height = 'auto';
+                el.style.height = (el.scrollHeight) + 'px';
+            });
+        });
+    </script>
   </body>
 </html>
