@@ -2,6 +2,12 @@
   --theme-color: 258 29% 43%;
 }
 
+h2 {
+  line-height: 1.125;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
 .toggle {
   position: fixed;
   top: 0;
@@ -103,7 +109,7 @@ form > * + * {
 }
 
 label {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.125rem;
   line-height: 1;
   cursor: pointer;
@@ -139,6 +145,8 @@ textarea {
 
 textarea {
   min-block-size: 7rem;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 input:is([name="age_limit"], [name="price"], [name="metascore"]) {
@@ -421,7 +429,7 @@ output::after {
   border: 2px solid hsl(calc(var(--metascore)), 90%, 50%);
   border-radius: 4px;
   padding: 0.25rem 0.35rem;
-  background: hsl(calc(var(--metascore)), 90%, 90%);
+  background: hsl(calc(var(--metascore)), 100%, 90%);
 }
 
 .age_limit {
