@@ -63,6 +63,7 @@ header h1 {
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 1px #fffa;
   -webkit-background-clip: text;
+  background-clip: text;
 }
 
 header p {
