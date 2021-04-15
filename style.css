@@ -418,6 +418,10 @@ output::after {
   inset-inline-end: 0;
   inset-block-start: 0;
   background: #fff;
+  inline-size: 1.75rem;
+  block-size: 1.75rem;
+  display: grid;
+  place-content: center;
   transform: translate(30%, -30%);
   box-shadow: 0 12px 28px 0 rgb(0 0 0 / 20%), 0 2px 4px 0 rgb(0 0 0 / 10%);
   border-radius: 50%;
@@ -432,8 +436,6 @@ output::after {
   --line-stroke: #5000ca;
   --circle-stroke: #fb28a8;
   outline: none;
-  box-shadow: inset 0 0 0 2px #fb28a8, 0 12px 28px 0 rgb(0 0 0 / 20%),
-    0 2px 4px 0 rgb(0 0 0 / 10%);
   border-radius: 50%;
 }
 
