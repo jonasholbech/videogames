@@ -461,10 +461,10 @@ output::after {
 
 .metascore {
   color: #2b2b2b;
-  border: 2px solid hsl(calc(var(--metascore)), 90%, 50%);
+  border: 2px solid hsl(var(--metascore), 90%, 50%);
   border-radius: 4px;
   padding: 0.25rem 0.35rem;
-  background: hsl(calc(var(--metascore)), 100%, 90%);
+  background: hsl(var(--metascore), 100%, 90%);
 }
 
 .age_limit {
@@ -506,4 +506,8 @@ body {
 
 input:-webkit-autofill {
   transition: 5000s background 0s !important;
+}
+
+.error {
+  color: deeppink;
 }

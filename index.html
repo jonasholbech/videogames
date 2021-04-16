@@ -43,6 +43,7 @@
                 <label for="title">Title</label>
                 <span class="hint">Enter a game title</span>
                 <input id="title" type="text" name="title" required>
+                <span class="error" hidden>Please provide a game title</span>
             </div>
 
             <div class="form-group">
@@ -75,7 +76,7 @@
                 <ul role="list" class="controls">
                     <li>
                         <label for="playstation_4">
-                            <input id="playstation_4" type="checkbox" name="platform" value="playstation 4">
+                            <input id="playstation_4" checked type="checkbox" name="platform" value="playstation 4">
                             PlayStation 4
                         </label>
                     </li>
@@ -125,13 +126,6 @@
                 </ul>
             </fieldset>
 
-            <div class="form-group inline">
-
-                <label for="multiplayer-1">
-                    <input id="multiplayer-1" type="checkbox" name="multiplayer" value="multiplayer">
-                    <span>Multiplayer (alt)</span>
-                </label>
-            </div>
 
             <div class="form-group">
                 <label for="price">Price</label>
@@ -146,33 +140,13 @@
                 <label for="metascore">Metascore</label>
                 <span class="hint">Provide a metascore</span>
                 <div class="input-group">
-                    <input type="number" step="10" min="0" max="100" inputmode="numeric" id="metascore"
+                    <input type="number" step="1" min="0" max="100" inputmode="numeric" id="metascore"
                         name="metascore">
                     <span>%</span>
                 </div>
             </div>
 
-            <div class="form-group range">
-                <label for="metascore-alt">Metascore</label>
-                <div class="range-wrap">
-                    <input type="range" step="10" min="0" max="100" inputmode="numeric" id="metascore-alt"
-                        name="metascore-alt" list="tickmarks" oninput="this.nextElementSibling.value = this.value">
-                    <output name="result" for="metascore-alt"></output>
-                </div>
-                <datalist id="tickmarks">
-                    <option value="0"></option>
-                    <option value="10"></option>
-                    <option value="20"></option>
-                    <option value="30"></option>
-                    <option value="40"></option>
-                    <option value="50"></option>
-                    <option value="60"></option>
-                    <option value="70"></option>
-                    <option value="80"></option>
-                    <option value="90"></option>
-                    <option value="100"></option>
-                </datalist>
-            </div>
+            
 
             <button class="btn">Add game</button>
         </form>
@@ -196,21 +170,7 @@
     </svg>
 
 
-    <script src="index.js"></script>
-    <script>
-        const toggle = document.querySelector('button.toggle');
-        const body = document.body;
-
-        toggle.addEventListener('click', _ => body.classList.toggle('alt'));
-
-        document.querySelectorAll('textarea').forEach(el => {
-            el.style.height = el.setAttribute('style', 'height: ' + el.scrollHeight + 'px');
-            el.classList.add('auto');
-            el.addEventListener('input', e => {
-                el.style.height = 'auto';
-                el.style.height = (el.scrollHeight) + 'px';
-            });
-        });
-    </script>
+    <script type="module" src="index.js"></script>
+    
   </body>
 </html>

@@ -1,38 +1,21 @@
+import { autoExpandTextarea } from "./helpers.js";
+import { headers } from "./settings.js";
+autoExpandTextarea();
+
 function get() {
   fetch("https://frontendspring21-b266.restdb.io/rest/videogames", {
     method: "get",
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "x-apikey": "60740773f592f7113340ef9a",
-      "cache-control": "no-cache",
-    },
+    headers: headers,
   })
     .then((e) => e.json())
     .then((data) => data.forEach(showGame));
 }
 
-function post() {
-  const data = {
-    title: "Minecraft",
-    genre: "Blocky",
-    age_limit: 7,
-    developer: "Mojang",
-    price: 149,
-    description: "Build your own world",
-    multiplayer: true,
-    metascore: 89,
-    release_date: Date.now(),
-    platforms: ["XBOX", "Playstation 4", "Playstation 5", "Windows", "Mac"],
-  };
-
+function post(data) {
   const postData = JSON.stringify(data);
   fetch("https://frontendspring21-b266.restdb.io/rest/videogames", {
     method: "post",
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "x-apikey": "60740773f592f7113340ef9a",
-      "cache-control": "no-cache",
-    },
+    headers: headers,
     body: postData,
   })
     .then((res) => res.json())
@@ -42,11 +25,7 @@ function post() {
 function deleteGame(id) {
   fetch("https://frontendspring21-b266.restdb.io/rest/videogames/" + id, {
     method: "delete",
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "x-apikey": "60740773f592f7113340ef9a",
-      "cache-control": "no-cache",
-    },
+    headers: headers,
   })
     .then((res) => res.json())
     .then((data) => console.log(data));
@@ -67,4 +46,38 @@ function showGame(game) {
 }
 get();
 
-document.querySelector(".addGame").addEventListener("click", post);
+//document.querySelector(".addGame").addEventListener("click", post);
+const form = document.querySelector("form");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  if (!form.elements.title.checkValidity()) {
+    form.elements.title.nextElementSibling.removeAttribute("hidden");
+    form.elements.title.focus();
+  }
+
+  if (form.checkValidity()) {
+    let multiplayer = true;
+    if (form.elements.game_mode.value === "singleplayer") {
+      multiplayer = false;
+    }
+    const platforms = [];
+    const platformEls = document.querySelectorAll("[name=platform]:checked");
+    platformEls.forEach((el) => platforms.push(el.value));
+
+    console.log(platforms);
+    post({
+      title: form.elements.title.value,
+      genre: form.elements.genre.value,
+      age_limit: form.elements.age_limit.value,
+      developer: "Epic Games",
+      price: form.elements.price.value,
+      description: form.elements.description.value,
+      multiplayer: multiplayer,
+      metascore: form.elements.metascore.value,
+      release_date: Date.now(),
+      platforms: platforms,
+    });
+  }
+});
+document.querySelector("form").setAttribute("novalidate", true);
